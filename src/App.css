@@ -1,0 +1,37 @@
+button {
+  cursor: pointer;
+  width: 96px;
+  height: 72px;
+  font-size: 1rem;
+}
+
+.calculator {
+  width: min-content;
+  background-color: gray;
+}
+
+.elem {
+  display: flex;
+}
+
+.result h3 {
+  text-align: end;
+  margin-right: 4px;
+  line-height: 48px;
+  font-size: 2rem;
+}
+
+#left {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#right {
+  display: flex;
+  flex-direction: column;
+}
+
+#zero {
+  width: auto;
+  grid-column-end: span 2;
+}
