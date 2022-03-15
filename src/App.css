@@ -3,6 +3,7 @@ button {
   width: 96px;
   height: 72px;
   font-size: 1rem;
+  border: 1px solid rgba(182, 182, 182, 0.924);
 }
 
 .calculator {
@@ -14,11 +15,19 @@ button {
   display: flex;
 }
 
+.result {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
 .result h3 {
   text-align: end;
+  color: white;
   margin-right: 4px;
-  line-height: 48px;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 #left {
@@ -29,6 +38,10 @@ button {
 #right {
   display: flex;
   flex-direction: column;
+}
+
+#right button {
+  background-color: orange;
 }
 
 #zero {
