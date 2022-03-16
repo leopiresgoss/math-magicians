@@ -19,7 +19,7 @@ button {
   height: 72px;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .result h3 {
