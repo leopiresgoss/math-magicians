@@ -1,49 +1,54 @@
 import React from 'react';
+import Result from './Result';
+import Buttons from './Buttons';
+import calculate from '../logic/calculate';
 
 export default class Calculator extends React.Component {
-  result = () => (
-    <div className="result">
-      <h3>0</h3>
-    </div>
-  )
+  constructor(props) {
+    super(props);
+    this.state = {
+      screen: '',
+      calc: {},
+    };
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.updateCalculatorScreen = this.updateCalculatorScreen.bind(this);
+  }
 
-  left = () => (
-    <div id="left">
-      <button type="button">AC</button>
-      <button type="button">+/-</button>
-      <button type="button">%</button>
-      <button type="button">7</button>
-      <button type="button">8</button>
-      <button type="button">9</button>
-      <button type="button">4</button>
-      <button type="button">5</button>
-      <button type="button">6</button>
-      <button type="button">1</button>
-      <button type="button">2</button>
-      <button type="button">3</button>
-      <button id="zero" type="button">0</button>
-      <button type="button">.</button>
-    </div>
-  );
+  handleButtonClick(btnContent) {
+    this.updateCalculatorScreen(btnContent);
+  }
 
-  right = () => (
-    <div id="right">
-      <button type="button">÷</button>
-      <button type="button">x</button>
-      <button type="button">-</button>
-      <button type="button">+</button>
-      <button type="button">=</button>
-    </div>
-  );
+  updateCalculatorScreen = (btnContent) => {
+    // update calculator
+    this.setState((prevState) => {
+      const newCalc = calculate(prevState.calc, btnContent);
+      return ({
+        calc: newCalc,
+      });
+    });
+
+    // update screen
+    this.setState((prevState) => {
+      let { total, operation, next } = prevState.calc;
+
+      if (total === null) total = '';
+      if (operation === null || operation === undefined) operation = '';
+      if (next === null) next = '';
+
+      return ({
+        screen: `${total}${operation}${next}`,
+      });
+    });
+  }
 
   render() {
+    const { screen } = this.state;
     return (
       <>
         <div className="calculator">
-          <this.result />
+          <Result result={screen} />
           <div className="elem">
-            <this.left />
-            <this.right />
+            <Buttons handleButtonClick={this.handleButtonClick} />
           </div>
         </div>
       </>
