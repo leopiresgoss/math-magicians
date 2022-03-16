@@ -1,57 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Result from './Result';
 import Buttons from './Buttons';
 import calculate from '../logic/calculate';
 
-export default class Calculator extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      screen: '',
-      calc: {},
-    };
-    this.handleButtonClick = this.handleButtonClick.bind(this);
-    this.updateCalculatorScreen = this.updateCalculatorScreen.bind(this);
-  }
+const Calculator = () => {
+  const [screen, setScreen] = useState('screen');
+  const [calc, setCalc] = useState('calc');
 
-  handleButtonClick(btnContent) {
-    this.updateCalculatorScreen(btnContent);
-  }
+  const updateCalculatorScreen = (btnContent) => {
+    const newCalc = calculate(calc, btnContent);
 
-  updateCalculatorScreen = (btnContent) => {
     // update calculator
-    this.setState((prevState) => {
-      const newCalc = calculate(prevState.calc, btnContent);
-      return ({
-        calc: newCalc,
-      });
-    });
+    setCalc(newCalc);
 
-    // update screen
-    this.setState((prevState) => {
-      let { total, operation, next } = prevState.calc;
+    let { total, operation, next } = newCalc;
 
-      if (total === null) total = '';
-      if (operation === null || operation === undefined) operation = '';
-      if (next === null) next = '';
+    if (total === null || total === undefined) total = '';
+    if (operation === null || operation === undefined) operation = '';
+    if (next === null || next === undefined) next = '';
 
-      return ({
-        screen: `${total}${operation}${next}`,
-      });
-    });
-  }
+    const updatedScreen = `${total}${operation}${next}`;
+    setScreen(updatedScreen);
+  };
 
-  render() {
-    const { screen } = this.state;
-    return (
-      <>
-        <div className="calculator">
-          <Result result={screen} />
-          <div className="elem">
-            <Buttons handleButtonClick={this.handleButtonClick} />
-          </div>
+  const handleButtonClick = (btnContent) => {
+    updateCalculatorScreen(btnContent);
+  };
+
+  return (
+    <>
+      <div className="calculator">
+        <Result result={screen} />
+        <div className="elem">
+          <Buttons handleButtonClick={handleButtonClick} />
         </div>
-      </>
-    );
-  }
-}
+      </div>
+    </>
+  );
+};
+
+export default Calculator;
