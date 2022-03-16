@@ -15,9 +15,9 @@ const Calculator = () => {
 
     let { total, operation, next } = newCalc;
 
-    if (total === null) total = '';
+    if (total === null || total === undefined) total = '';
     if (operation === null || operation === undefined) operation = '';
-    if (next === null) next = '';
+    if (next === null || next === undefined) next = '';
 
     const updatedScreen = `${total}${operation}${next}`;
     setScreen(updatedScreen);
