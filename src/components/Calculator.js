@@ -15,15 +15,24 @@ export default class Calculator extends React.Component {
   updateCalculatorScreen = (e) => {
     const btnContent = e.target.innerHTML;
 
-    // update screen
-    this.setState((prevState) => ({
-      screen: `${prevState.screen}${btnContent}`,
-    }));
     // update calculator
     this.setState((prevState) => {
       const newCalc = calculate(prevState.calc, btnContent);
       return ({
         calc: newCalc,
+      });
+    });
+
+    // update screen
+    this.setState((prevState) => {
+      let { total, operation, next } = prevState.calc;
+
+      if (total === null) total = '';
+      if (operation === null || operation === undefined) operation = '';
+      if (next === null) next = '';
+
+      return ({
+        screen: `${total}${operation}${next}`,
       });
     });
   }
