@@ -1,0 +1,33 @@
+.navBar {
+  min-height: 10vh;
+  max-width: 50vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5% 0;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+}
+
+.links li {
+  list-style: none;
+}
+
+.links li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
+
+.links li a:hover {
+  font-weight: bold;
+}
