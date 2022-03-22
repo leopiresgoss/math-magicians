@@ -6,6 +6,17 @@
   font-size: 2rem;
 }
 
+.quote {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.quote h2 {
+  font-style: italic;
+  text-align: center;
+}
+
 .home p {
   margin-top: 24px;
   line-height: 24px;
