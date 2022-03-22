@@ -24,51 +24,8 @@
 
 button {
   cursor: pointer;
-  width: 96px;
-  height: 72px;
+  width: 104px;
+  height: 78px;
   font-size: 1rem;
   border: 1px solid rgba(182, 182, 182, 0.924);
-}
-
-.calculator {
-  width: min-content;
-  background-color: gray;
-}
-
-.elem {
-  display: flex;
-}
-
-.result {
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.result h3 {
-  text-align: end;
-  color: white;
-  margin-right: 4px;
-  font-size: 1.5rem;
-  font-weight: 300;
-}
-
-#left {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-#right {
-  display: flex;
-  flex-direction: column;
-}
-
-#right button {
-  background-color: orange;
-}
-
-#zero {
-  width: auto;
-  grid-column-end: span 2;
 }

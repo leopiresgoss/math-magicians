@@ -27,6 +27,10 @@ h1 {
   font-size: 1.2rem;
 }
 
+.links li a.active {
+  font-weight: bold;
+}
+
 .links li a:hover {
   font-weight: bold;
 }
