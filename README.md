@@ -9,12 +9,16 @@
 - React
 - JavaScript
 
+## Live Version
+- [Heroku](https://math-magicians-leonardopgs.herokuapp.com/)
+- [Netlify](https://math-magicians-leonardo.netlify.app/)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps. 
 
 1. Clone the project directory in your terminal by running this command:
-`git@github.com:leopiresgoss/math-magicians.git
+`git@github.com:leopiresgoss/math-magicians.git`
 
 1. Change the directory to the leaderboard:
 `cd math-magicians`
